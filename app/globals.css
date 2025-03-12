@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 9.8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 9.8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 47.9 95.8% 53.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-futuristic-background text-foreground;
+  }
+}
+
+@layer components {
+  .futuristic-gradient {
+    @apply bg-gradient-to-r from-futuristic-blue to-futuristic-yellow-dark bg-[length:200%_200%] animate-background-pan;
+  }
+
+  .futuristic-gradient-text {
+    @apply bg-gradient-to-r from-futuristic-blue to-futuristic-yellow-dark bg-clip-text text-transparent bg-[length:200%_200%] animate-background-pan;
+  }
+
+  .futuristic-border {
+    @apply border border-futuristic-blue/50 shadow-[0_0_10px_rgba(76,201,240,0.3)];
+  }
+
+  .futuristic-panel {
+    @apply bg-futuristic-background-dark/90 backdrop-blur-sm border border-futuristic-blue/20 rounded-md;
+  }
+
+  .futuristic-button {
+    @apply bg-futuristic-background-light hover:bg-futuristic-blue/20 border border-futuristic-blue/30 
+           text-white rounded-md px-4 py-2 transition-all duration-200
+           hover:shadow-[0_0_10px_rgba(76,201,240,0.5)] hover:border-futuristic-blue/60;
+  }
+
+  .futuristic-icon-button {
+    @apply bg-futuristic-background-light hover:bg-futuristic-blue/20 border border-futuristic-blue/30 
+           text-white rounded-md p-2 transition-all duration-200
+           hover:shadow-[0_0_10px_rgba(76,201,240,0.5)] hover:border-futuristic-blue/60;
+  }
+
+  .glow-effect {
+    @apply relative;
+  }
+
+  .glow-effect::before {
+    content: "";
+    @apply absolute inset-0 rounded-md bg-gradient-to-r from-futuristic-blue to-futuristic-yellow opacity-0
+           blur-xl transition-opacity duration-300 -z-10;
+  }
+
+  .glow-effect:hover::before {
+    @apply opacity-30;
+  }
+
+  .canvas-container {
+    @apply rounded-lg overflow-hidden futuristic-border;
+  }
+}
+
